@@ -1,6 +1,7 @@
 import React from 'react'
 
 import index from './index'
+
 import '/src/styles/index.scss'
 
 interface IProps {}
