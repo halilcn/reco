@@ -1,1 +1,1 @@
-export {default as Deneme} from "./deneme/Deneme";
+export { default as Deneme } from './deneme/Deneme'

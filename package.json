@@ -22,11 +22,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "pretty-quick": "pretty-quick"
+    "pretty-quick": "pretty-quick",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
     "postcss": "^8.4.14",
     "prettier": "2.7.1",
     "prettier-plugin-organize-imports": "^3.0.0",
@@ -51,9 +53,7 @@
       "last 1 safari version"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
