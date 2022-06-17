@@ -24,6 +24,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "autoprefixer": "^10.4.7",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.2",
