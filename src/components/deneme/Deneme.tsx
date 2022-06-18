@@ -1,13 +1,16 @@
+import classNames from 'classnames'
 import React from 'react'
-import { useEffect } from 'react'
 
-import test from './index'
-import '/src/styles/index.scss'
+
 
 interface IProps {}
 
 const Deneme: React.FC<IProps> = props => {
-  return <div className="text-3xl font-bold underline text-red-600 bg-blue-500">test button</div>
+  //todo: style module
+
+  const testClass=classNames('text-xl font-bold underline text-red-600 bg-blue-500')
+
+  return <div className={testClass}>test button</div>
 }
 
 export default Deneme

@@ -4,5 +4,8 @@
   "singleQuote": true,
   "bracketSameLine": true,
   "arrowParens": "avoid",
-  "printWidth": 100
+  "printWidth": 100,
+  "importOrder": ["^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
