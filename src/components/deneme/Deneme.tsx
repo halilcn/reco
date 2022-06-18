@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import React from 'react'
 
 
-
 interface IProps {}
 
 const Deneme: React.FC<IProps> = props => {
