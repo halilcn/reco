@@ -42,20 +42,20 @@ describe('Button', () => {
     })
   })
 
-  describe('class of the button should', () => {
-    test('contain the added class name', async () => {
+  describe('class of the button', () => {
+    test('should contain the added class name', async () => {
       render(<Button className={testClass}>Test Text Button</Button>)
 
       expect(screen.getByTestId(element.button).classList.contains(testClass)).toBeTruthy()
     })
 
-    test('contain opacity class when disabled prop is true', async () => {
+    test('should contain opacity class when disabled prop is true', async () => {
       render(<Button disabled>Test Text Button</Button>)
 
       expect(screen.getByTestId(element.button).classList.contains('opacity-50')).toBeTruthy()
     })
 
-    test('contain opacity class when loading prop is true', async () => {
+    test('should contain opacity class when loading prop is true', async () => {
       render(<Button loading>Test Text Button</Button>)
 
       expect(screen.getByTestId(element.button).classList.contains('opacity-50')).toBeTruthy()
