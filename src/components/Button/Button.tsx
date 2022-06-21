@@ -1,40 +1,36 @@
 import classNames from 'classnames'
 import React from 'react'
 
-interface IProps {
+import convertClassesToImportant from '../../utils/convertClassesToImportant'
+
+interface IProps extends React.ComponentProps<'button'> {
   children: any
-  customClass?: string
-  loading?: boolean
   disabled?: boolean
+  loading?: boolean
 }
 
+//todo:!
+
 const Button: React.FC<IProps> = props => {
-  const { customClass, children, disabled, loading } = props
+  const { className, children, disabled, loading, ...componentProps } = props
 
   const buttonClass = classNames(
-    'bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded cursor-pointer',
-    customClass,
+    'flex justify-center items-center w-40 bg-sky-500 hover:bg-sky-400 text-white font-medium py-2 px-4 rounded cursor-pointer',
+    convertClassesToImportant(className),
     {
-      'opacity-50 !cursor-not-allowed': disabled,
-      'opacity-50 !cursor-wait': loading,
+      'opacity-50 pointer-events-none	!cursor-not-allowed': disabled,
+      'opacity-50 pointer-events-none	!cursor-wait': loading,
     }
   )
 
   const loadingClass = classNames('flex items-center')
 
   return (
-    <div className={buttonClass}>
-      {loading && (
-        <div data-testid="loading" className={loadingClass}>
-          loading...
-        </div>
-      )}
-      {!loading && <div data-testid="content" className="content">{children}</div>}
-    </div>
+    <button data-testid="button" className={buttonClass} {...componentProps}>
+      {loading && <div className={loadingClass}>...loading</div>}
+      {!loading && <div data-testid="content">{children}</div>}
+    </button>
   )
 }
-
-/*
- */
 
 export default Button

@@ -52,13 +52,19 @@ describe('Button', () => {
     test('should contain opacity class when disabled prop is true', async () => {
       render(<Button disabled>Test Text Button</Button>)
 
-      expect(screen.getByTestId(element.button).classList.contains('opacity-50')).toBeTruthy()
+      const buttonClassList = screen.getByTestId(element.button).classList
+
+      expect(buttonClassList.contains('opacity-50')).toBeTruthy()
+      expect(buttonClassList.contains('pointer-events-none')).toBeTruthy()
     })
 
     test('should contain opacity class when loading prop is true', async () => {
       render(<Button loading>Test Text Button</Button>)
 
-      expect(screen.getByTestId(element.button).classList.contains('opacity-50')).toBeTruthy()
+      const buttonClassList = screen.getByTestId(element.button).classList
+
+      expect(buttonClassList.contains('opacity-50')).toBeTruthy()
+      expect(buttonClassList.contains('pointer-events-none')).toBeTruthy()
     })
   })
 })
