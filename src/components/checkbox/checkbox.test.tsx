@@ -13,8 +13,6 @@ describe('Checkbox', () => {
   const testId = 'test-id'
   const testClass = 'test-class'
 
-  //todo:!
-
   test('should be render without crashing', () => {
     render(<Checkbox id={testId}>Test Checkbox</Checkbox>)
   })

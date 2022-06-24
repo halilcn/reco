@@ -2,9 +2,8 @@ import { useState } from 'react'
 import { FaBeer } from 'react-icons/fa'
 
 import './App.css'
-import { Deneme } from './components'
-import Button from './components/Button/Button'
-import Checkbox from './components/Checkbox/Checkbox'
+import Button from './components/button/Button'
+import Checkbox from './components/checkbox/Checkbox'
 
 function App() {
   const [testCheck, setTestCheck] = useState(true)
