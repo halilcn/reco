@@ -3,7 +3,7 @@ import React from 'react'
 
 import convertClassesToImportant from '../../utils/convertClassesToImportant'
 
-interface IProps extends React.ComponentProps<'input'> {
+interface IProps extends React.ComponentProps<'div'> {
   id: string
   children: any
   checked?: boolean
@@ -27,7 +27,7 @@ const Checkbox: React.FC<IProps> = props => {
   )
 
   return (
-    <div data-testid="checkboxContainer" className={checkboxContainerClass} {...componentProps}>
+    <div data-testid="iconCheckbox" className={checkboxContainerClass} {...componentProps}>
       {children}
     </div>
   )

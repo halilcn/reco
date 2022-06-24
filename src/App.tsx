@@ -26,7 +26,6 @@ function App() {
       <br />
       <div className="flex">
         <IconCheckbox
-          disabled
           checked={testCheck}
           onClick={() => {
             setTestCheck(!testCheck)
