@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 
+import convertClassesToImportant from '../../utils/convertClassesToImportant'
 import Checkbox from './Checkbox'
 
 describe('Checkbox', () => {
@@ -10,6 +11,7 @@ describe('Checkbox', () => {
   }
 
   const testId = 'test-id'
+  const testClass = 'test-class'
 
   //todo:!
 
@@ -17,7 +19,39 @@ describe('Checkbox', () => {
     render(<Checkbox id={testId}>Test Checkbox</Checkbox>)
   })
 
-  describe('checkbox container', () => {})
+  describe('checkbox container', () => {
+    test('should contain the added class name', async () => {
+      render(
+        <Checkbox className={testClass} id={testId}>
+          Test Checkbox
+        </Checkbox>
+      )
+
+      expect(screen.getByTestId(element.checkboxContainer)).toHaveClass(
+        convertClassesToImportant(testClass)
+      )
+    })
+
+    test('should contain pointer-events-none class when disable prop is true', async () => {
+      render(
+        <Checkbox disabled id={testId}>
+          Test Checkbox
+        </Checkbox>
+      )
+
+      expect(screen.getByTestId(element.checkboxContainer)).toHaveClass('pointer-events-none')
+    })
+
+    test('should contain pointer-events-none class when loading prop is true', async () => {
+      render(
+        <Checkbox loading id={testId}>
+          Test Checkbox
+        </Checkbox>
+      )
+
+      expect(screen.getByTestId(element.checkboxContainer)).toHaveClass('pointer-events-none')
+    })
+  })
 
   describe('input checkbox', () => {
     test('shouldn"t be disable when first render', async () => {
@@ -80,6 +114,20 @@ describe('Checkbox', () => {
       )
 
       expect(screen.getByTestId(element.checkbox)).toHaveProperty('value', testValue)
+    })
+  })
+
+  describe('label', () => {
+    test('should be enable when children is not null', async () => {
+      render(<Checkbox id={testId}>Test Checkbox</Checkbox>)
+
+      expect(screen.getByTestId(element.label)).toBeEnabled()
+    })
+
+    test('shouldn"t be disable when children is null', async () => {
+      render(<Checkbox id={testId} />)
+
+      expect(screen.queryByTestId(element.label)).toBeNull()
     })
   })
 })
