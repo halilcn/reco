@@ -27,8 +27,9 @@ const Checkbox: React.FC<IProps> = props => {
   const checkboxLabelClass = classNames('ml-2 cursor-pointer')
 
   return (
-    <div className={checkboxContainerClass}>
+    <div data-testid="checkboxContainer" className={checkboxContainerClass}>
       <input
+        data-testid="checkbox"
         type="checkbox"
         id={id}
         className={checkboxClass}
@@ -36,7 +37,7 @@ const Checkbox: React.FC<IProps> = props => {
         {...componentProps}
       />
       {children && (
-        <label htmlFor={id} className={checkboxLabelClass}>
+        <label data-testid="label" htmlFor={id} className={checkboxLabelClass}>
           {children}
         </label>
       )}
