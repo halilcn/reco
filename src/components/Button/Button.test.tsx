@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 
+import convertClassesToImportant from '../../utils/convertClassesToImportant'
 import Button from './Button'
 
 describe('Button', () => {
@@ -46,7 +47,7 @@ describe('Button', () => {
     test('should contain the added class name', async () => {
       render(<Button className={testClass}>Test Text Button</Button>)
 
-      expect(screen.getByTestId(element.button).classList.contains(testClass)).toBeTruthy()
+      expect(screen.getByTestId(element.button)).toHaveClass(convertClassesToImportant(testClass))
     })
 
     test('should contain opacity class when disabled prop is true', async () => {

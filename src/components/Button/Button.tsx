@@ -27,7 +27,11 @@ const Button: React.FC<IProps> = props => {
 
   return (
     <button data-testid="button" className={buttonClass} {...componentProps}>
-      {loading && <div className={loadingClass}>...loading</div>}
+      {loading && (
+        <div data-testid="loading" className={loadingClass}>
+          ...loading
+        </div>
+      )}
       {!loading && <div data-testid="content">{children}</div>}
     </button>
   )
