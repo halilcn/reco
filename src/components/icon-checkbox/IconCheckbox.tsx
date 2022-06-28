@@ -14,8 +14,6 @@ interface IProps extends React.ComponentProps<'div'> {
 const Checkbox: React.FC<IProps> = props => {
   const { id, className, children, checked, loading, disabled, ...componentProps } = props
 
-  //todo: style ?? önemli !
-
   const checkboxContainerClass = classNames(
     'relative flex items-center text-gray-500 text-sm cursor-pointer bg-sky-100 hover:bg-sky-200 text-sky-500 p-3 rounded-full',
     convertClassesToImportant(className),

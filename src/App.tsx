@@ -5,17 +5,16 @@ import './App.css'
 import Button from './components/button/Button'
 import Checkbox from './components/checkbox/Checkbox'
 import IconCheckbox from './components/icon-checkbox/IconCheckbox'
+import Select from './components/select/Select'
 
 function App() {
   const [testCheck, setTestCheck] = useState(true)
 
   return (
-    <div className="flex-col justify-center items-center">
-      <div className="mr-6">
-        <Button className="bg-red-700">test button</Button>
-      </div>
+    <div className="flex flex-col items-center">
+      <Button className={'bg-red-600'}>test button</Button>
       <Checkbox
-        className={'mr-10'}
+        className={'mr-16'}
         checked={testCheck}
         onChange={() => {
           setTestCheck(!testCheck)
@@ -23,17 +22,16 @@ function App() {
         id="test">
         tess deneme
       </Checkbox>
-      <br />
-      <div className="flex">
-        <IconCheckbox
-          checked={testCheck}
-          onClick={() => {
-            setTestCheck(!testCheck)
-          }}
-          id={'dednem'}>
-          <FaBeer />
-        </IconCheckbox>
-      </div>
+      <IconCheckbox
+        className={'text-red-600'}
+        checked={testCheck}
+        onClick={() => {
+          setTestCheck(!testCheck)
+        }}
+        id={'dednem'}>
+        <FaBeer />
+      </IconCheckbox>
+      <Select />
     </div>
   )
 }

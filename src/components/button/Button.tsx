@@ -9,8 +9,6 @@ interface IProps extends React.ComponentProps<'button'> {
   loading?: boolean
 }
 
-//todo:!
-
 const Button: React.FC<IProps> = props => {
   const { className, children, disabled, loading, ...componentProps } = props
 
