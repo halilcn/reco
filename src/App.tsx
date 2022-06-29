@@ -9,6 +9,11 @@ import Select from './components/select/Select'
 
 function App() {
   const [testCheck, setTestCheck] = useState(true)
+  const [testSelectDrop, setTestSelectDrop] = useState(false)
+
+  const handleSelect = (selectedOption: string | number | boolean) => {
+    console.log(selectedOption)
+  }
 
   return (
     <div className="flex flex-col items-center">
@@ -31,7 +36,17 @@ function App() {
         id={'dednem'}>
         <FaBeer />
       </IconCheckbox>
-      <Select />
+      <br />
+      <br />
+      <br />
+      <Select
+        disabled={testCheck}
+        changeOption={handleSelect}
+        options={[
+          { value: 1, text: 'deneasd ad asd asd ad asdsdsad sme' },
+          { value: 2, text: 'aaaaa' },
+        ]}
+      />
     </div>
   )
 }
