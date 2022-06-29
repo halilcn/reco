@@ -4,14 +4,14 @@ import { MdOutlineArrowDropDown } from 'react-icons/md'
 
 import convertClassesToImportant from '../../utils/convertClassesToImportant'
 
-type optionTypes = string | number
+export type optionTypes = string | number
 
-interface IOptions {
+export interface IOptions {
   value: optionTypes
   text: optionTypes
 }
 
-interface IProps extends React.ComponentProps<'div'> {
+export interface IProps extends React.ComponentProps<'div'> {
   disabled?: boolean
   loading?: boolean
   defaultSelectedOptionText?: optionTypes
@@ -72,15 +72,19 @@ const Select: React.FC<IProps> = props => {
   )
 
   return (
-    <div className={selectContainerClass} {...componentProps}>
-      <div className={selectedOptionClass} onClick={toggleDropdown}>
-        <span>{selectedOption}</span>
+    <div data-testid="selectContainer" className={selectContainerClass} {...componentProps}>
+      <div data-testid="selectButton" className={selectedOptionClass} onClick={toggleDropdown}>
+        <span data-testid="selectedOptionValue">{selectedOption}</span>
         <MdOutlineArrowDropDown className={'ml-1'} size={24} />
       </div>
       {isActiveDropdown && (
-        <div className={dropdownClass}>
-          {options.map(option => (
-            <div onClick={() => selectOption(option.value)} className={dropdownItemClass}>
+        <div data-testid="selectDropdown" className={dropdownClass}>
+          {options.map((option, key) => (
+            <div
+              data-testid="selectDropdownItem"
+              key={key}
+              onClick={() => selectOption(option.value)}
+              className={dropdownItemClass}>
               {option.text}
             </div>
           ))}
