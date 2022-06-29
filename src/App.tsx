@@ -5,6 +5,7 @@ import './App.css'
 import Button from './components/button/Button'
 import Checkbox from './components/checkbox/Checkbox'
 import IconCheckbox from './components/icon-checkbox/IconCheckbox'
+import Input from './components/input/Input'
 import Select from './components/select/Select'
 
 function App() {
@@ -46,6 +47,15 @@ function App() {
           { value: 1, text: 'deneasd ad asd asd ad asdsdsad sme' },
           { value: 2, text: 'aaaaa' },
         ]}
+      />
+      <br />
+      <br />
+      <Input
+        id={'gmhhm'}
+        loading
+        type="text"
+        onChange={e => console.log(e.target.value)}
+        hasError={true}
       />
     </div>
   )
