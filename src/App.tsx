@@ -50,13 +50,7 @@ function App() {
       />
       <br />
       <br />
-      <Input
-        id={'gmhhm'}
-        loading
-        type="text"
-        onChange={e => console.log(e.target.value)}
-        hasError={true}
-      />
+      <Input title={'ASDsadsa'} type="text" onChange={e => console.log(e.target.value)} />
     </div>
   )
 }
