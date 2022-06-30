@@ -38,9 +38,13 @@ const Input: React.FC<IProps> = props => {
   )
 
   return (
-    <div className={inputContainerClass}>
-      <input required className={inputClass} {...componentProps} />
-      {title && <label className={inputLabelClass}>{title}</label>}
+    <div data-testid="inputContainer" className={inputContainerClass}>
+      <input data-testid="input" required className={inputClass} {...componentProps} />
+      {title && (
+        <label data-testid="title" className={inputLabelClass}>
+          {title}
+        </label>
+      )}
     </div>
   )
 }

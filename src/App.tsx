@@ -50,7 +50,7 @@ function App() {
       />
       <br />
       <br />
-      <Input title={'ASDsadsa'} type="text" onChange={e => console.log(e.target.value)} />
+      <Input onChange={e => console.log(e.target.value)} />
     </div>
   )
 }
