@@ -4,15 +4,15 @@ import React, { useEffect, useRef, useState } from 'react'
 import useOutsideClick from '../../hooks/useOutsideClick'
 import convertClassesToImportant from '../../utils/convertClassesToImportant'
 
-export type optionTypes = string | number
+export type OptionTypes = string | number
 
 export interface IOptions {
-  value: optionTypes
-  text: optionTypes
+  value: OptionTypes
+  text: OptionTypes
 }
 
 export interface IProps extends React.ComponentProps<'div'> {
-  changeSelectedOption: (selectedOptionValue: optionTypes) => void
+  changeSelectedOption: (selectedOptionValue: OptionTypes) => void
   options: IOptions[]
   disabled?: boolean
   loading?: boolean
@@ -21,10 +21,10 @@ export interface IProps extends React.ComponentProps<'div'> {
 const AutoComplete: React.FC<IProps> = props => {
   const { className, changeSelectedOption, loading, disabled, options, ...componentProps } = props
 
-  const [isActiveDropdown, setIsActiveDropdown] = useState<boolean>(true)
-  const [filterText, setFilterText] = useState<optionTypes>('')
+  const [isActiveDropdown, setIsActiveDropdown] = useState<boolean>(false)
+  const [filterText, setFilterText] = useState<OptionTypes>('')
   const [dropdownOptions, setDropdownOptions] = useState<IOptions[]>([])
-  const [selectedOption, setSelectedOption] = useState<optionTypes>('')
+  const [selectedOption, setSelectedOption] = useState<OptionTypes>('')
   const [alreadySelectedOption, setAlreadySelectedOption] = useState<boolean>(false)
 
   const autoCompleteContainerRef = useRef(null)
@@ -65,7 +65,7 @@ const AutoComplete: React.FC<IProps> = props => {
     setIsActiveDropdown(!isActiveDropdown)
   }
 
-  const selectOption = (optionValue: optionTypes) => {
+  const selectOption = (optionValue: OptionTypes) => {
     setIsActiveDropdown(!isActiveDropdown)
 
     const textOfSelectedOption = options.find(
@@ -103,18 +103,24 @@ const AutoComplete: React.FC<IProps> = props => {
   )
 
   return (
-    <div ref={autoCompleteContainerRef} className={selectContainerClass} {...componentProps}>
+    <div
+      data-testid="autoCompleteContainer"
+      ref={autoCompleteContainerRef}
+      className={selectContainerClass}
+      {...componentProps}>
       <input
+        data-testid="autoCompleteInput"
         onFocus={toggleDropdown}
         onChange={e => setFilterText(e.target.value)}
         value={filterText}
         className={inputClass}
       />
       {isActiveDropdown && (
-        <div className={dropdownClass}>
+        <div data-testid="autoCompleteDropdown" className={dropdownClass}>
           {!!dropdownOptions.length &&
             dropdownOptions.map((option, key) => (
               <div
+                data-testid="autoCompleteDropdownItem"
                 key={key}
                 onClick={() => selectOption(option.value)}
                 className={dropdownItemClass}>
@@ -123,7 +129,9 @@ const AutoComplete: React.FC<IProps> = props => {
             ))}
 
           {!dropdownOptions.length && !alreadySelectedOption && (
-            <div className={dropdownNoItemClass}>No option</div>
+            <div data-testid="autoCompleteDropdownNoItem" className={dropdownNoItemClass}>
+              No option
+            </div>
           )}
         </div>
       )}
