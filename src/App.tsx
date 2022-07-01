@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FaBeer } from 'react-icons/fa'
 
 import './App.css'
+import AutoComplete from './components/auto-complete/AutoComplete'
 import Button from './components/button/Button'
 import Checkbox from './components/checkbox/Checkbox'
 import IconCheckbox from './components/icon-checkbox/IconCheckbox'
@@ -14,6 +15,10 @@ function App() {
 
   const handleSelect = (selectedOption: string | number | boolean) => {
     console.log(selectedOption)
+  }
+
+  const testFunc = (selectedOptionValue: string | number | boolean) => {
+    console.log(selectedOptionValue)
   }
 
   return (
@@ -51,6 +56,14 @@ function App() {
       <br />
       <br />
       <Input onChange={e => console.log(e.target.value)} />
+      <br />
+      <AutoComplete
+        changeSelectedOption={testFunc}
+        options={[
+          { value: 1, text: 'deneasd ad asd asd ad asdsdsad sme' },
+          { value: 2, text: 'aaaaa' },
+        ]}
+      />
     </div>
   )
 }
