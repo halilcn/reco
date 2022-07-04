@@ -101,10 +101,14 @@ const Select: React.FC<IProps> = props => {
   )
 
   return (
-    <div className={tableContainerClass} {...componentProps}>
-      <div className={rowContainerClass}>
+    <div data-testid="tableContainer" className={tableContainerClass} {...componentProps}>
+      <div data-testid="row" className={rowContainerClass}>
         {rows.map((row, key) => (
-          <div key={key} onClick={() => sortColum(row.field)} className={rowItemClass(row)}>
+          <div
+            data-testid="rowItem"
+            key={key}
+            onClick={() => sortColum(row.field)}
+            className={rowItemClass(row)}>
             {row.headerName}
             {row.sortingActive !== false &&
               (activeSorting.reverse ? (
@@ -116,9 +120,11 @@ const Select: React.FC<IProps> = props => {
         ))}
       </div>
       {tableColumns.map((column, key) => (
-        <div key={key} className={columClass}>
-          {rowFields?.map(rowField => (
-            <div className="w-full">{column[rowField]}</div>
+        <div data-testid="column" key={key} className={columClass}>
+          {rowFields?.map((rowField, key) => (
+            <div key={key} data-testid="columnItem" className="w-full">
+              {column[rowField]}
+            </div>
           ))}
         </div>
       ))}
