@@ -8,6 +8,7 @@ import Checkbox from './components/checkbox/Checkbox'
 import IconCheckbox from './components/icon-checkbox/IconCheckbox'
 import Input from './components/input/Input'
 import Select from './components/select/Select'
+import Table from './components/table/Table'
 
 function App() {
   const [testCheck, setTestCheck] = useState(true)
@@ -64,6 +65,20 @@ function App() {
           { value: 2, text: 'aaaaa' },
         ]}
       />
+      <div className="w-1/2">
+        <Table
+          rows={[
+            { field: 'price', headerName: 'Price' },
+            { field: 'title', headerName: 'Title' },
+            { field: 'description', headerName: 'Description' },
+          ]}
+          columns={[
+            { price: 10, title: 'test asd', description: 'adsas' },
+            { price: 20, title: 'cxvxcv', description: 'twer' },
+            { price: 2, title: 'fdtdsdsest asd', description: 'yere' },
+          ]}
+        />
+      </div>
     </div>
   )
 }
