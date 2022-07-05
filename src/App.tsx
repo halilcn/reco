@@ -84,7 +84,12 @@ function App() {
       </div>
 
       <div>
-        <Rating />
+        <Rating
+          onChange={startScore => {
+            console.log(startScore)
+          }}
+          defaultScore={2}
+        />
       </div>
     </div>
   )
