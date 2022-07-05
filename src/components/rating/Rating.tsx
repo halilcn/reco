@@ -49,18 +49,24 @@ const Rating: React.FC<IProps> = props => {
   const ratingClass = classNames('hover:scale-125 transition')
 
   return (
-    <div className={ratingContainerClass}>
+    <div data-testid="ratingContainer" className={ratingContainerClass}>
       {SCORE_LENGTH.map((number, index) => (
         <div
+          data-testid="rating"
+          key={index}
           className={ratingClass}
           onMouseOver={() => handleMouseOverStar((index + 1) as ScoreType)}
           onMouseLeave={handleMouseLeaveStar}
           onClick={() => handleClickStar((index + 1) as ScoreType)}>
-          {temporaryScore !== null && index < temporaryScore && <AiFillStar />}
-          {temporaryScore !== null && index >= temporaryScore && <AiOutlineStar />}
+          {temporaryScore !== null && index < temporaryScore && (
+            <AiFillStar data-testid="fillStar" />
+          )}
+          {temporaryScore !== null && index >= temporaryScore && (
+            <AiOutlineStar data-testid="outlineStar" />
+          )}
 
-          {temporaryScore === null && index < score && <AiFillStar />}
-          {temporaryScore === null && index >= score && <AiOutlineStar />}
+          {temporaryScore === null && index < score && <AiFillStar data-testid="fillStar" />}
+          {temporaryScore === null && index >= score && <AiOutlineStar data-testid="outlineStar" />}
         </div>
       ))}
     </div>
