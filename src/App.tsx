@@ -7,6 +7,7 @@ import Button from './components/button/Button'
 import Checkbox from './components/checkbox/Checkbox'
 import IconCheckbox from './components/icon-checkbox/IconCheckbox'
 import Input from './components/input/Input'
+import Rating from './components/rating/Rating'
 import Select from './components/select/Select'
 import Table from './components/table/Table'
 
@@ -80,6 +81,10 @@ function App() {
             { price: 42, title: 'b', date: '01-02-2025' },
           ]}
         />
+      </div>
+
+      <div>
+        <Rating />
       </div>
     </div>
   )
