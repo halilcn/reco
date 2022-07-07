@@ -7,6 +7,7 @@ import Button from './components/button/Button'
 import Checkbox from './components/checkbox/Checkbox'
 import IconCheckbox from './components/icon-checkbox/IconCheckbox'
 import Input from './components/input/Input'
+import Popup from './components/popup/Popup'
 import Rating from './components/rating/Rating'
 import Select from './components/select/Select'
 import Table from './components/table/Table'
@@ -14,6 +15,7 @@ import Table from './components/table/Table'
 function App() {
   const [testCheck, setTestCheck] = useState(true)
   const [testSelectDrop, setTestSelectDrop] = useState(false)
+  const [enablePopup, setEnablePopup] = useState(false)
 
   const handleSelect = (selectedOption: string | number | boolean) => {
     console.log(selectedOption)
@@ -91,6 +93,32 @@ function App() {
           defaultScore={2}
         />
       </div>
+
+      <Button onClick={() => setEnablePopup(!enablePopup)} className="bg-red-700">
+        test button
+      </Button>
+      <Popup
+        className={'bg-red-700'}
+        title="Test Create Popup"
+        enable={enablePopup}
+        togglePopup={() => setEnablePopup(!enablePopup)}>
+        <div className="text-gray-600">
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+          <div>asdsadas</div>
+        </div>
+      </Popup>
     </div>
   )
 }
