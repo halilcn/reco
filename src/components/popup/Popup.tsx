@@ -37,11 +37,15 @@ const Popup: React.FC<IProps> = props => {
 
   return enable ? (
     <div className={popupContainerClass}>
-      <div onClick={togglePopup} className={popupFilterClass} />
-      <div className={popupClass} {...componentProps}>
-        <IoMdClose onClick={togglePopup} className={popupCloseIconClass} />
-        <div className={popupTitleClass}>{title}</div>
-        <div className={popupContentClass}>{children}</div>
+      <div data-testid="popupFilter" onClick={togglePopup} className={popupFilterClass} />
+      <div data-testid="popup" className={popupClass} {...componentProps}>
+        <IoMdClose data-testid="closeIcon" onClick={togglePopup} className={popupCloseIconClass} />
+        <div data-testid="title" className={popupTitleClass}>
+          {title}
+        </div>
+        <div data-testid="children" className={popupContentClass}>
+          {children}
+        </div>
       </div>
     </div>
   ) : (
