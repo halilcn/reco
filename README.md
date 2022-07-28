@@ -1,8 +1,10 @@
 # reco
 
 The reco is a basic react component library to develop a faster, easier app.
-It hasn't had all features yet.
+It doesn't have all the components yet that it has to.
 So it is named basic library.
+
+//tailwind yüklemen gerek?
 
 ## Installation
 
@@ -33,14 +35,72 @@ Each component has a few mandatory and non-mandatory props. The following is a d
 
 ## Documentation
 
-There are description and its props table of each component.
+All the components are written with tailwindcss for style.
+So you can change style of almost all the components using tailwindcss.
 Also, entire props have a description and allows common props(etc: classNames, onClick).
 
-tailwind meselesi ??
+There are props table of each component with description.
+There are also a few examples to understand easier.
 
-- **_Button Component_**
+### Examples
 
-  The button component provides a button html element.
+You can change the style of it using the classnames of tailwindcss.
+
+```typescript jsx
+ return (
+        <Button className="bg-red-400">Test Button</Button>
+    );
+```
+
+- Example for AutoComplete component
+
+```typescript jsx
+const [isLoading, setIsLoading] = useState<boolean>(false)
+const [isDisabled, setIsDisabled] = useState<boolean>(false)
+
+const options = [{value: 'test-value', text: 'test-text'}]
+
+const handleSelect = (selectedOptionValue: string | number) => {
+setIsLoading(true)
+//some process with selectedOptionValue...
+setIsLoading(false)
+}
+
+return (
+<AutoComplete
+changeSelectedOption={handleSelect}
+options={options}
+disabled={isDisabled}
+loading={isLoading}/>
+);
+```
+
+- Example for Popup component
+
+```typescript jsx
+const [isEnable, setIsEnable] = useState<boolean>(false)
+
+const togglePopup = () => {
+  setIsEnable(!isEnable)
+}
+
+return (
+  <div>
+    <Popup title='Test Popup' enable={isEnable} togglePopup={togglePopup}>
+      <div className="p-5 font-bold">
+        Test Popup
+      </div>
+    </Popup>
+    <Button onClick={togglePopup} disabled={isEnable}>Show Popup</Button>
+  </div>
+);
+```
+
+### Components
+
+### _Button Component_
+
+The button component provides a button html element.
 
 | Prop        | Type      | Description    |
 | :---------- | :-------- | :------------- |
@@ -48,9 +108,9 @@ tailwind meselesi ??
 | `disabled?` | `boolean` | disable status |
 | `loading?`  | `boolean` | loading status |
 
-- **_Auto Complete Component_**
+### _Auto Complete Component_
 
-  The auto complete component provides a dropdown that has different features like auto complete, default selected option and filter options.
+The auto complete component provides a dropdown that has different features like auto complete, default selected option and filter options.
 
 | Prop                   | Type                                            | Description                        |
 | :--------------------- | :---------------------------------------------- | :--------------------------------- |
@@ -58,9 +118,9 @@ tailwind meselesi ??
 | `disabled?`            | `boolean`                                       | disable status                     |
 | `loading?`             | `boolean`                                       | loading status                     |
 
-- **_Checkbox Component_**
+### _Checkbox Component_
 
-  The checkbox component provides the user select one or more options of a limited number of choices
+The checkbox component provides the user select one or more options of a limited number of choices
 
 | Prop        | Type      | Description    |
 | :---------- | :-------- | :------------- |
@@ -69,9 +129,9 @@ tailwind meselesi ??
 | `disabled?` | `boolean` | disable status |
 | `loading?`  | `boolean` | laoding status |
 
-- **_Icon Checkbox Component_**
+### _Icon Checkbox Component_
 
-  The icon checkbox component provides the user select one or more options of a limited number of choices with icon
+The icon checkbox component provides the user select one or more options of a limited number of choices with icon
 
 | Prop        | Type      | Description    |
 | :---------- | :-------- | :------------- |
@@ -81,9 +141,9 @@ tailwind meselesi ??
 | `disabled?` | `boolean` | disable status |
 | `loading?`  | `boolean` | laoding status |
 
-- **_Input Component_**
+### _Input Component_
 
-  The Input component provides custom input html element that has particular styles for special occasions .
+The Input component provides custom input html element that has particular styles for special occasions .
 
 | Prop        | Type      | Description              |
 | :---------- | :-------- | :----------------------- |
@@ -92,9 +152,9 @@ tailwind meselesi ??
 | `disabled?` | `boolean` | disable status           |
 | `loading?`  | `boolean` | loading status           |
 
-- **_Popup Component_**
+### _Popup Component_
 
-  The popup component provides a container popup that enables to use everywhere.
+The popup component provides a container popup that enables to use everywhere.
 
 | Prop          | Type         | Description                         |
 | :------------ | :----------- | :---------------------------------- |
@@ -103,9 +163,9 @@ tailwind meselesi ??
 | `title`       | `boolean`    | title                               |
 | `togglePopup` | `() => void` | callback function for enable status |
 
-- **_Rating Component_**
+### _Rating Component_
 
-  The Rating component provides a custom rating structure that allows voting from 0 to 5
+The Rating component provides a custom rating structure that allows voting from 0 to 5
 
 | Prop            | Type                                     | Description                         |
 | :-------------- | :--------------------------------------- | :---------------------------------- |
@@ -114,9 +174,9 @@ tailwind meselesi ??
 | `disabled?`     | `boolean`                                | disabled status                     |
 | `readOnly?`     | `boolean`                                | read only status to disabled status |
 
-- **_Select Component_**
+### _Select Component_
 
-  The select component provides a custom html select element.
+The select component provides a custom html select element.
 
 | Prop                         | Type                                          | Description                           |
 | :--------------------------- | :-------------------------------------------- | :------------------------------------ |
@@ -126,9 +186,9 @@ tailwind meselesi ??
 | `disabled?`                  | `boolean`                                     | disabled status                       |
 | `loading?`                   | `boolean`                                     | loading status                        |
 
-- **_Table Component_**
+### _Table Component_
 
-  The table component provides a custom table structure completely that has a few features like sorting and custom data type
+The table component provides a custom table structure completely that has a few features like sorting and custom data type
 
 | Prop            | Type                                                                                  | Description         |
 | :-------------- | :------------------------------------------------------------------------------------ | :------------------ |
