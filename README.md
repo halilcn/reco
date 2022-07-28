@@ -4,7 +4,7 @@ The reco is a basic react component library to develop a faster, easier app.
 It doesn't have all the components yet that it has to.
 So it is named basic library.
 
-//tailwind yüklemen gerek?
+Make sure installed tailwind before you use it because it uses tailwind for the style
 
 ## Installation
 
