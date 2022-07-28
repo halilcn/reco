@@ -11,10 +11,10 @@ So it is named basic library.
 reco is available to use.
 
 ```npm
-npm install @halilcn/reco@1.0.0
+npm install @halilcn/reco
 ```
 
-Here is an example of app which use Button component of reco
+Here is an example of an app that uses the Button component of reco
 
 ```typescript jsx
 import { Button } from '@halilcn/reco'
@@ -25,7 +25,17 @@ interface IProps {}
 const Page: React.FC<IProps> = props => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  return <Button loading={isLoading}>Test Button</Button>
+  const handleClick = () => {
+    setIsLoading(true)
+    //some process...
+    setIsLoading(false)
+  }
+
+  return (
+    <Button onClick={handleClick} loading={isLoading}>
+      Test Button
+    </Button>
+  )
 }
 
 export default Page
@@ -36,15 +46,15 @@ Each component has a few mandatory and non-mandatory props. The following is a d
 ## Documentation
 
 All the components are written with tailwindcss for style.
-So you can change style of almost all the components using tailwindcss.
-Also, entire props have a description and allows common props(etc: classNames, onClick).
+So you can change the style of almost all the components using tailwindcss.
+Also, entire props have a description and allow common props(eg: classNames, onClick).
 
-There are props table of each component with description.
+There is a table for props of each component with a description.
 There are also a few examples to understand easier.
 
 ### Examples
 
-You can change the style of it using the classnames of tailwindcss.
+- You can change the style of it using the classnames of tailwindcss.
 
 ```typescript jsx
  return (
