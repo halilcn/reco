@@ -1,6 +1,6 @@
 {
   "name": "@halilcn/reco",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Halil Can",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/halilcn"
