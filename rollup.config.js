@@ -4,7 +4,6 @@ import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
 
 const packageJson = require('./package.json')
-const postcss = require('rollup-plugin-postcss')
 
 export default [
   {
@@ -14,22 +13,7 @@ export default [
       format: 'esm',
       sourcemap: true,
     },
-    plugins: [
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
-      postcss({
-        config: {
-          path: './postcss.config.js',
-        },
-        extensions: ['.css'],
-        minimize: true,
-        inject: {
-          insertAt: 'top',
-        },
-      }),
-    ],
-    external: ['react', 'react-dom'],
+    plugins: [resolve(), commonjs(), typescript({ tsconfig: './tsconfig.json' })],
   },
   {
     input: 'dist/esm/types/index.d.ts',
